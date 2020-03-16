@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = props => {
 
-  // const saveHandler = () => {
-  //   console.log(props.saveMovie);
-  // }
-
   if (!props.movie) {
     return <div>Loading movie information...</div>;
   }
@@ -30,7 +26,7 @@ const MovieCard = props => {
           </div>
         ))}
       </div>
-      <div className="save-button" onClick={props.saveMovie}>Save</div>
+      {props.movieList === true ? null : <div className="save-button" onClick={props.saveMovie}>Save</div>}
     </div>
   );
 };

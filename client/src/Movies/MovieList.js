@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Movie from './Movie';
+import MovieCard from './MovieCard';
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -22,7 +22,7 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-          <Movie key={movie.id} movie={movie} addToSavedList={props.addToSavedList} />
+          <MovieCard key={movie.id} movie={movie} movieList />
       ))}
     </div>
   );
