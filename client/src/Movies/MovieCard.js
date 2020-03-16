@@ -1,6 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = props => {
+
+  // const saveHandler = () => {
+  //   console.log(props.saveMovie);
+  // }
 
   if (!props.movie) {
     return <div>Loading movie information...</div>;
@@ -10,7 +15,7 @@ const MovieCard = props => {
   return (
     <div className="save-wrapper">
       <div className="movie-card">
-        <h2>{title}</h2>
+      <Link to={`/movies/${props.movie.id}`} key={props.movie.id}><h2>{title}</h2></Link>
         <div className="movie-director">
           Director: <em>{director}</em>
         </div>
@@ -25,7 +30,7 @@ const MovieCard = props => {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={props.saveMovie}>Save</div>
     </div>
   );
 };
